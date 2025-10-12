@@ -3,6 +3,7 @@ import torch
 import numpy as np
 from dncnn_model import DnCNN
 
+#테스트
 # 노이즈 제거할 이미지 경로
 image_path = r"/home/jovyan/Desktop/Braillight/Ai_back/denoise_dir/noise_image.png"
 
