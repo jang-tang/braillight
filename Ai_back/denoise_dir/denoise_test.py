@@ -22,7 +22,7 @@ model = model.to(device)  # GPU로 올리기
 model.eval()  # 평가 모드로 변경
 
 # state_dict 로드
-state_dict = torch.load(model_path, map_location=device)
+state_dict = torch.load(model_path, map_location=device,weights_only=True)
 model.load_state_dict(state_dict)
 
 # 이미지 읽기
@@ -38,6 +38,17 @@ img_tensor = torch.from_numpy(img).unsqueeze(0).unsqueeze(0).to(device)  # shape
 with torch.no_grad():
     denoised = model(img_tensor).cpu().numpy()[0, 0]
 cv2.imwrite("denoised_raw.png", np.clip(denoised*255,0,255).astype(np.uint8))
+"""with torch.no_grad():
+    out = model.in_conv(img_tensor)
+    for conv in model.conv_list:
+        out = model.relu(conv(out))
+    out = model.out_conv(out)
+    denoised = img_tensor - out  # x - predicted noise
+    denoised = denoised.squeeze().cpu().numpy()
+    denoised = np.clip(denoised, 0, 1)  # 0~1로 클리핑
+    denoised_uint8 = (denoised * 255).astype(np.uint8)
+    cv2.imwrite(output_path, denoised_uint8)"""
+
 
 
 # 픽셀 값 범위 0~255로 변환
