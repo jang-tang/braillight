@@ -1,0 +1,165 @@
+/**
+ * Braillight 웹 서비스의 전역 스타일
+ * 
+ * 이 파일은 전체 애플리케이션에 적용되는 기본 스타일을 정의합니다.
+ * 브라우저 기본 스타일을 리셋하고, 공통으로 사용되는 유틸리티 클래스들을 포함합니다.
+ */
+
+/* ===== 기본 스타일 리셋 ===== */
+/* 모든 요소의 기본 마진과 패딩을 제거하고, 박스 모델을 일관되게 설정 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* 패딩과 보더가 요소 크기에 포함되도록 설정 */
+}
+
+/* ===== 기본 폰트 및 배경 설정 ===== */
+body {
+  /* 한국어 폰트를 우선으로 하는 폰트 스택 설정 */
+  font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  /* 폰트 렌더링을 부드럽게 만들어 가독성 향상 */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #FFFFFF; /* 전체 배경을 흰색으로 설정 */
+  color: #333333; /* 기본 텍스트 색상을 진한 회색으로 설정 */
+}
+
+/* 코드 요소의 폰트 설정 (개발자 도구 등에서 사용) */
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* ===== HTML 요소 기본 스타일 리셋 ===== */
+/* 제목 요소들의 기본 마진과 패딩 제거 */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+}
+
+/* 버튼 요소의 기본 스타일 제거 */
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: inherit; /* 부모 요소의 폰트를 상속 */
+}
+
+/* 입력 요소들의 폰트 상속 */
+input, textarea {
+  font-family: inherit;
+}
+
+/* ===== 공통 유틸리티 클래스 ===== */
+/* 컨테이너: 최대 너비를 제한하고 중앙 정렬 */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* 텍스트 중앙 정렬 */
+.text-center {
+  text-align: center;
+}
+
+/* Flexbox 유틸리티 클래스들 */
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center; /* 세로 중앙 정렬 */
+  justify-content: center; /* 가로 중앙 정렬 */
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* 양 끝 정렬 */
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column; /* 세로 방향으로 배치 */
+}
+
+/* ===== 버튼 스타일 ===== */
+/* 기본 버튼 스타일 */
+.btn {
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.2s ease; /* 부드러운 전환 효과 */
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  display: inline-block;
+}
+
+/* 메인 버튼 스타일 (파란색) */
+.btn-primary {
+  background-color: #66B2FF;
+  color: #FFFFFF;
+}
+
+.btn-primary:hover {
+  background-color: #5AA3E6; /* 호버 시 약간 더 진한 파란색 */
+}
+
+/* 보조 버튼 스타일 (연한 파란색) */
+.btn-secondary {
+  background-color: #87C4FF;
+  color: #FFFFFF;
+}
+
+.btn-secondary:hover {
+  background-color: #7BB3E6; /* 호버 시 약간 더 진한 색상 */
+}
+
+/* ===== 카드 스타일 ===== */
+/* 카드 컴포넌트의 기본 스타일 */
+.card {
+  background: #FFFFFF;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* 부드러운 그림자 효과 */
+  padding: 24px;
+}
+
+/* ===== 로딩 스피너 ===== */
+/* 회전하는 로딩 스피너 */
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #F2F2F2; /* 배경 원 */
+  border-top: 4px solid #66B2FF; /* 회전하는 부분 */
+  border-radius: 50%;
+  animation: spin 1s linear infinite; /* 1초마다 한 바퀴 회전 */
+}
+
+/* 스피너 회전 애니메이션 */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ===== 진행률 바 ===== */
+/* 진행률을 표시하는 바의 컨테이너 */
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background-color: #F2F2F2; /* 배경색 */
+  border-radius: 4px;
+  overflow: hidden; /* 넘치는 부분 숨김 */
+}
+
+/* 진행률 바의 채워진 부분 */
+.progress-fill {
+  height: 100%;
+  background-color: #66B2FF; /* 브랜드 색상 */
+  transition: width 0.3s ease; /* 너비 변화 시 부드러운 전환 */
+}

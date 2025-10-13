@@ -1,0 +1,116 @@
+.completed-page {
+  min-height: 100vh;
+  background-color: #FFFFFF;
+}
+
+.completed-main {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* 슬로건 컨테이너 - 별도 분리 */
+.slogan-container {
+  margin-top: 150px;
+  padding-left: 45px;
+  margin-bottom: 40px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.slogan {
+  text-align: left;
+  width: auto;
+}
+
+.slogan-line {
+  font-size: 50px;
+  font-weight: 800; /* 굵기를 800으로 조정 */
+  line-height: 1.2;
+  margin-bottom: 16px;
+  color: #333333;
+  text-align: left; /* 각 줄을 왼쪽 정렬 */
+}
+
+.slogan-line .highlight {
+  color: #66B2FF;
+  text-decoration: none; /* 밑줄 제거 */
+  font-weight: 800; /* 파란색 강조 부분도 800으로 조정 */
+}
+
+.file-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.file-display {
+  width: 100%;
+  max-width: 600px;
+  height: 300px;
+  border: 2px dashed #DDDDDD;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  position: relative;
+  background-color: #FFFFFF;
+}
+
+
+.file-icon {
+  color: #333333;
+  margin-bottom: 8px;
+}
+
+.file-icon-image {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+.file-name {
+  font-size: 16px;
+  color: #333333;
+  margin: 0;
+  text-align: center;
+  max-width: 400px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.download-btn {
+  background-color: #66B2FF;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  width: 260px;
+}
+
+.download-btn:hover {
+  background-color: #5AA3E6;
+}
+
+@media (max-width: 768px) {
+  .slogan-line {
+    font-size: 32px;
+  }
+  
+  .completed-main {
+    padding: 40px 20px;
+  }
+  
+  .file-display {
+    height: 250px;
+  }
+}
