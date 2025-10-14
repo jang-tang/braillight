@@ -1,0 +1,167 @@
+.loading-page {
+  min-height: 100vh;
+  background-color: #FFFFFF;
+}
+
+.loading-main {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* 슬로건 컨테이너 - UploadPage와 동일 */
+.slogan-container {
+  margin-top: 150px;
+  padding-left: 45px;
+  margin-bottom: 40px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.slogan {
+  text-align: left;
+  width: auto;
+}
+
+.slogan-line {
+  font-size: 50px;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 16px;
+  color: #333333;
+  text-align: left;
+}
+
+.slogan-line .highlight {
+  color: #66B2FF;
+  text-decoration: none;
+  font-weight: 800;
+}
+
+.loading-content {
+  text-align: center;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.loading-message {
+  margin-bottom: 60px;
+}
+
+.message-line {
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 16px;
+  color: #333333;
+}
+
+.message-line .highlight {
+  color: #66B2FF;
+}
+
+.loading-spinner {
+  margin-bottom: 60px;
+  padding-top: 20px;
+}
+
+/* 원형 스피너 스켈레톤 */
+.skeleton-circle {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.skeleton-dot {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background-color: #B7B8BA;
+  border-radius: 50%;
+  animation: skeleton-pulse 1.5s ease-in-out infinite;
+}
+
+/* 점자 패턴: 1,3,7,10,12,15,18 위치에 점 배치 */
+/* 3x6 격자에서 특정 위치에만 점 표시 */
+.skeleton-dot:nth-child(1) { top: 20px; left: 20%; transform: translateX(-50%); animation-delay: 0s; }
+.skeleton-dot:nth-child(2) { top: 20px; left: 50%; transform: translateX(-50%); animation-delay: 0.1s; }
+.skeleton-dot:nth-child(3) { top: 40px; left: 20%; transform: translateX(-50%); animation-delay: 0.2s; }
+.skeleton-dot:nth-child(4) { top: 40px; left: 60%; transform: translateX(-50%); animation-delay: 0.3s; }
+.skeleton-dot:nth-child(5) { top: 40px; left: 80%; transform: translateX(-50%); animation-delay: 0.4s; }
+.skeleton-dot:nth-child(6) { top: 60px; left: 50%; transform: translateX(-50%); animation-delay: 0.5s; }
+.skeleton-dot:nth-child(7) { top: 60px; left: 80%; transform: translateX(-50%); animation-delay: 0.6s; }
+
+@keyframes skeleton-pulse {
+  0%, 100% { 
+    opacity: 0.3;
+    transform: translateX(-50%) scale(0.9);
+  }
+  50% { 
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+  }
+}
+
+/* 진행률 바 - 540px 너비에 맞춤 */
+.progress-container {
+  width: 540px !important;
+  min-width: 540px !important;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 16px 0;
+  flex-shrink: 0;
+}
+
+.progress-bar {
+  flex: 1;
+  height: 12px;
+  background-color: #E5E5E5;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: #66B2FF;
+  transition: width 0.1s ease;
+  border-radius: 6px;
+}
+
+.progress-text {
+  font-size: 16px;
+  color: #333333;
+  font-weight: 500;
+  min-width: 50px;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .slogan-line {
+    font-size: 32px;
+  }
+  
+  .message-line {
+    font-size: 24px;
+  }
+  
+  .loading-main {
+    padding: 40px 20px;
+  }
+  
+  .skeleton-circle {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .skeleton-inner {
+    width: 30px;
+    height: 30px;
+  }
+}
