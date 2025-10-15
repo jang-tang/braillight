@@ -5,13 +5,13 @@ from dncnn_model import DnCNN
 
 #테스트
 # 노이즈 제거할 이미지 경로
-image_path = r"/home/jovyan/Desktop/Braillight/Ai_back/denoise_dir/noise_image.png"
+image_path = r"/home/jovyan/Desktop/braillight/Ai_back/ Preprocess/noise_image.png"
 
 # 모델 경로
-model_path = r"/home/jovyan/Desktop/Braillight/Ai_back/denoise_dir/dncnn_sigma2_gray.pth"
+model_path = r"/home/jovyan/Desktop/braillight/Ai_back/ Preprocess/dncnn_sigma2_gray.pth"
 
 # 결과 저장 경로
-output_path = r"/home/jovyan/Desktop/Braillight/Ai_back/denoise_dir/denoised_output.png"
+output_path = r"/home/jovyan/Desktop/braillight/Ai_back/ Preprocess/denoised_output.png"
 
 # 장치 설정
 device = "cuda" if torch.cuda.is_available() else "cpu"
@@ -38,19 +38,6 @@ img_tensor = torch.from_numpy(img).unsqueeze(0).unsqueeze(0).to(device)  # shape
 # 노이즈 제거
 with torch.no_grad():
     denoised = model(img_tensor).cpu().numpy()[0, 0]
-cv2.imwrite("denoised_raw.png", np.clip(denoised*255,0,255).astype(np.uint8))
-"""with torch.no_grad():
-    out = model.in_conv(img_tensor)
-    for conv in model.conv_list:
-        out = model.relu(conv(out))
-    out = model.out_conv(out)
-    denoised = img_tensor - out  # x - predicted noise
-    denoised = denoised.squeeze().cpu().numpy()
-    denoised = np.clip(denoised, 0, 1)  # 0~1로 클리핑
-    denoised_uint8 = (denoised * 255).astype(np.uint8)
-    cv2.imwrite(output_path, denoised_uint8)"""
-
-
 
 # 픽셀 값 범위 0~255로 변환
 denoised = np.clip(denoised * 255, 0, 255).astype(np.uint8)
